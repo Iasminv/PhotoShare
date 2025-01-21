@@ -20,37 +20,48 @@ namespace PhotoShare.Controllers
             // Create a photo
             Photo photo1 = new Photo();
             photo1.PhotoId = 1;
-            photo1.Title = "Photo1";
             photo1.Description = "Description 1";
             photo1.ImageFilename = "photo1.jpg";
             photo1.CreatedAt = DateTime.Now;
 
             // Create a photo
             Photo photo2 = new Photo();
-            photo1.PhotoId = 2;
-            photo1.Title = "Photo2";
-            photo1.Description = "Description 2";
-            photo1.ImageFilename = "photo2.jpg";
-            photo1.CreatedAt = DateTime.Now;
+            photo2.PhotoId = 2;
+            photo2.Description = "Description 2";
+            photo2.ImageFilename = "photo2.jpg";
+            photo2.CreatedAt = DateTime.Now;
 
             // Create a photo
             Photo photo3 = new Photo();
-            photo1.PhotoId = 3;
-            photo1.Title = "Photo3";
-            photo1.Description = "Description 3";
-            photo1.ImageFilename = "photo1.jpg";
-            photo1.CreatedAt = DateTime.Now;
+            photo3.PhotoId = 3;
+            photo3.Description = "Description 3";
+            photo3.ImageFilename = "photo3.jpg";
+            photo3.CreatedAt = DateTime.Now;
 
             // Add the photos to the list
             photos.Add(photo1);
             photos.Add(photo2);
             photos.Add(photo3);
 
-            return View();
+            return View(photos); // pass the photo list to view
+        }
+
+        // Photo Details - Display the details of a photo
+        public IActionResult PhotoDetails(int id)
+        {
+            // Create a photo
+            Photo photo = new Photo();
+            photo.PhotoId = id;
+            photo.Description = "This is my cat.";
+            photo.ImageFilename = "cat.jpg";
+            photo.CreatedAt = DateTime.Now;
+
+            return View(photo); // pass in photo to view
         }
 
         public IActionResult Privacy()
         {
+
             return View();
         }
 
